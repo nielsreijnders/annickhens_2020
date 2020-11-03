@@ -81,10 +81,16 @@ const page = ({
           ))}
         </ul>
         <div>
-          &euro;
-          {(Math.round(arr.length * 8.5 * 100) / 100).toFixed(2)}
+          VERZENDING: &euro;1.50
+          <br />
+          <br />
+
         </div>
-        <EmailButton href={`mailto:kerst4bosnie@gmail.com?subject=Bestelling&body=Hoi, ik zou graag dit willen bestellen: %0D%0A%0D%0A${arrToUp.join('%0D%0A')}%0D%0A%0D%0A Totaleprijs: ${(Math.round(arr.length * 8.5 * 100) / 100).toFixed(2)} %0D%0A%0D Adres: (vul adres in)%0D%0A%0DGroettjeesss`}>verstuur mail</EmailButton>
+        <div>
+          TOTAAL INC VERZENDING: &euro;
+          {(Math.round(arr.length * 8.5 * 100) / 100 + 1.5).toFixed(2)}
+        </div>
+        <EmailButton href={`mailto:kerst4bosnie@gmail.com?subject=Bestelling&body=Hoi, ik zou graag dit willen bestellen: %0D%0A%0D%0A${arrToUp.join('%0D%0A')}%0D%0A%0D%0A TOTAAL INC VERZENDING: ${(Math.round(arr.length * 8.5 * 100) / 100 + 1.5).toFixed(2)} %0D%0A%0D Adres: (vul adres in)%0D%0A%0DGroettjeesss`}>verstuur mail</EmailButton>
       </Order>
       )}
 
@@ -144,7 +150,6 @@ const page = ({
                   ))}
                 </div>
               </Slider>
-              {console.log(swiper)}
               <Swiper {...params}>
                 {images.map((item) => (
                   <StyledImage fluid={item.fluid} />
