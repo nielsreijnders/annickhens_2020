@@ -104,7 +104,7 @@ const page = ({
         Voor meer informatie en vragen of vrijwillige bijdrage kun je mailtje sturen naar kerst4bosnie&gmail.com
       </Description>
       <Container>
-        {sections.map(({ title, images }) => (
+        {seoTitle === 'kerstkaarten' && sections && sections.map(({ title, images }) => (
           <Card>
             <Overflow>
               <Slider>
