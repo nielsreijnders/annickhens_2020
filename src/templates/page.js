@@ -87,10 +87,16 @@ const page = ({
 
         </div>
         <div>
-          TOTAAL INC VERZENDING: &euro;
-          {(Math.round(arr.length * 8.5 * 100) / 100 + 1.5).toFixed(2)}
+          MINIMAAL 5 KAARTEN ✨🙂
+          <br />
+          <br />
+
         </div>
-        <EmailButton href={`mailto:kerst4bosnie@gmail.com?subject=Bestelling&body=Hoi, ik zou graag dit willen bestellen: %0D%0A%0D%0A${arrToUp.join('%0D%0A')}%0D%0A%0D%0A TOTAAL INC VERZENDING: ${(Math.round(arr.length * 8.5 * 100) / 100 + 1.5).toFixed(2)} %0D%0A%0D Adres: (vul adres in)%0D%0A%0DGroettjeesss`}>verstuur mail</EmailButton>
+        <div>
+          TOTAAL INC VERZENDING: &euro;
+          {(Math.round(arr.length * 1.7 * 100) / 100 + 1.5).toFixed(2)}
+        </div>
+        <EmailButton href={`mailto:kerst4bosnie@gmail.com?subject=Bestelling&body=Hoi, ik zou graag dit willen bestellen: %0D%0A%0D%0A${arrToUp.join('%0D%0A')}%0D%0A%0D%0A TOTAAL INC VERZENDING: ${(Math.round(arr.length * 1.7 * 100) / 100 + 1.5).toFixed(2)} %0D%0A%0D Adres: (vul adres in)%0D%0A%0DGroettjeesss`}>verstuur mail</EmailButton>
       </Order>
       )}
 
@@ -107,11 +113,9 @@ const page = ({
             Met een groep studenten gaan we volgend voorjaar 🤞🏻 naar Bosnië daar zullen wij in de zorg helpen en van elkaar leren.
             Alle opbrengst wordt gedoneerd aan stichting out of area!
             5 kaartjes voor €8.50
-            Je kunt kiezen uit deze toffe bundels hieronder
             Verzendkosten bedragen €1.50
 
             Wil je deze geweldige kaarten bestellen kan dat via kerst4bosnie@gmail.com
-            Geef duidelijk aan welke bundel(s) je wil en je adres, wij doen de rest 😉
 
             Bestellen mogelijk tot 4 december!
 
@@ -124,82 +128,62 @@ const page = ({
 
       <Container>
         {seoTitle === 'kerstkaarten' && sections && sections.map(({ title, images }) => (
-          <Card>
-            <Overflow>
-              <Slider>
-                <div>
-                  {[...Array(50)].map((index) => (
-                    <span key={index}>
-                      ✨
+          <>
+            {images.map((item, index) => (
+              <>
+                {index > 0 && (
+                  <Card>
+                    <Overflow>
+                      <StyledImage fluid={item.fluid} />
+                      <Wrapper>
+                        {/* <ButtonNext onClick={() => goNext()}>
+                          <svg
+                            width={15.707}
+                            height={14.06}
+                            viewBox="0 0 15.707 14.06"
+                          >
+                            <g
+                              data-name="Group 32"
+                              fill="none"
+                              stroke="#000"
+                              strokeMiterlimit={10}
+                            >
+                              <path data-name="Path 45" d="M8.324.354l6.677 6.677-6.677 6.677" />
+                              <path data-name="Line 2" d="M15 7.03H0" />
+                            </g>
+                          </svg>
+                        </ButtonNext>
+                        <ButtonNext onClick={() => goPrev()}>
+                          <svg
+                            width={15.707}
+                            height={14.06}
+                            viewBox="0 0 15.707 14.06"
+                          >
+                            <g
+                              data-name="Group 32"
+                              fill="none"
+                              stroke="#000"
+                              strokeMiterlimit={10}
+                            >
+                              <path data-name="Path 45" d="M8.324.354l6.677 6.677-6.677 6.677" />
+                              <path data-name="Line 2" d="M15 7.03H0" />
+                            </g>
+                          </svg>
+                        </ButtonNext> */}
+                      </Wrapper>
+
+                    </Overflow>
+
+                    <StyledTitle>
+                      {title}
                       {' '}
-                      🎅🏼
-                      {/* {title} */}
+                      #KAARTNUMMER
+                      {index}
 
-                    </span>
-                  ))}
-                </div>
-                <div>
-                  {[...Array(50)].map((index) => (
-                    <span key={index}>
-                      ✨
                       {' '}
-                      🎅🏼
-                      {/* {title} */}
-
-                    </span>
-                  ))}
-                </div>
-              </Slider>
-              <Swiper {...params}>
-                {images.map((item) => (
-                  <StyledImage fluid={item.fluid} />
-                ))}
-              </Swiper>
-              <Wrapper>
-                <ButtonNext onClick={() => goNext()}>
-                  <svg
-                    width={15.707}
-                    height={14.06}
-                    viewBox="0 0 15.707 14.06"
-                  >
-                    <g
-                      data-name="Group 32"
-                      fill="none"
-                      stroke="#000"
-                      strokeMiterlimit={10}
-                    >
-                      <path data-name="Path 45" d="M8.324.354l6.677 6.677-6.677 6.677" />
-                      <path data-name="Line 2" d="M15 7.03H0" />
-                    </g>
-                  </svg>
-                </ButtonNext>
-                <ButtonNext onClick={() => goPrev()}>
-                  <svg
-                    width={15.707}
-                    height={14.06}
-                    viewBox="0 0 15.707 14.06"
-                  >
-                    <g
-                      data-name="Group 32"
-                      fill="none"
-                      stroke="#000"
-                      strokeMiterlimit={10}
-                    >
-                      <path data-name="Path 45" d="M8.324.354l6.677 6.677-6.677 6.677" />
-                      <path data-name="Line 2" d="M15 7.03H0" />
-                    </g>
-                  </svg>
-                </ButtonNext>
-              </Wrapper>
-
-            </Overflow>
-
-            <StyledTitle>
-              {title}
-              {' '}
-              &euro;8,50
-            </StyledTitle>
-            {/* <Qauntity>
+                      &euro;1,70
+                    </StyledTitle>
+                    {/* <Qauntity>
               <div onClick={() => qauntinSelector(1)}>
                 1x
               </div>
@@ -208,10 +192,16 @@ const page = ({
               </div>
             </Qauntity> */}
 
-            <Button onClick={() => handleSubmit(title)}>
-              Add to order
-            </Button>
-          </Card>
+                    <Button onClick={() => handleSubmit(title += index)}>
+                      Add to order
+                      {' '}
+                    </Button>
+                  </Card>
+                )}
+              </>
+            ))}
+
+          </>
         ))}
       </Container>
     </Layout>
