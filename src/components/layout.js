@@ -24,7 +24,7 @@ const Template = ({ children }) => {
     (typeof window !== 'undefined') && (
     <Container>
       <SmoothProvider ase={0.08} skew>
-        <div className="vs-section">
+        <div className="smooth tf you looking at">
           <Navigation />
           {children}
           <Footer />

@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Image from 'gatsby-image';
 import styled, { keyframes } from 'styled-components';
+import { TweenMax } from 'gsap';
 
 import { desktopVw, fonts, letterSpacing } from '../styles';
 
@@ -9,14 +10,50 @@ const Hero = ({
     title, image, backgroundText,
   },
 }) => {
-  console.log(title);
+  const refContainer = useRef(null);
+  const itemsRef = useRef([]);
+  const x = itemsRef.current.map((item) => item);
+  const z = x.map((item) => [...item.children]);
+
+  const handleMouse = (e) => {
+    [...z.flat()].map((item) => {
+      const rect = item.getBoundingClientRect();
+      const d = 30;
+      const dx = e.clientX - rect.left;
+      const dy = e.clientY - rect.top;
+      const angle = Math.atan2(dy, dx);
+      TweenMax.to(item, 0.95, {
+        x: Math.cos(angle) * d, y: Math.sin(angle) * d, transformOrigin: '50% 50%', scale: 1,
+      });
+    });
+  };
+
+  const handleMouseOut = () => {
+    [...z.flat()].map((item) => {
+      TweenMax.to(item, 0.7, { x: 0, y: 0 });
+    });
+  };
+
   return (
     <StyledHero>
       <StyledImage fluid={image.fluid} />
-      {/* <Title>{title}</Title> */}
-      <Container>
-        {[...Array(2)].map((item, index) => <div key={index}>{backgroundText.map((text) => <p>{text.split('').map((letter) => <span>{letter}</span>)}</p>)}</div>)}
-      </Container>
+      <div onMouseLeave={(e) => handleMouseOut(e)} onMouseMove={(e) => handleMouse(e)}>
+        <Container ref={refContainer}>
+          {[...Array(2)].map((item, index1) => (
+            <div key={index1}>
+              {backgroundText.map((text, index2) => (
+                <p ref={(el) => itemsRef.current[(index1 === 0 && index2 === 1) ? 3 : (index1 + index2)] = el}>
+                  {text.split('').map((letter, index3) => (
+                    <span>
+                      {letter}
+                    </span>
+                  ))}
+                </p>
+              ))}
+            </div>
+          ))}
+        </Container>
+      </div>
     </StyledHero>
   );
 };
@@ -50,6 +87,10 @@ const Container = styled.div`
 
   div:first-child {
     /* margin: 0 0 ${desktopVw(300)} 0; */
+  }
+
+  span {
+    display: inline-block;
   }
 
   p {
