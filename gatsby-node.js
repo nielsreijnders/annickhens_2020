@@ -5,7 +5,7 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
   return new Promise((resolve, reject) => {
-    const blogPost = path.resolve('./src/templates/page.js');
+    const blogPost = path.resolve('./src/templates/Page.tsx');
     resolve(
       graphql(
         `
@@ -13,9 +13,8 @@ exports.createPages = ({ graphql, actions }) => {
             allContentfulPage {
               edges {
                 node {
-                  id
-                  title
                   slug
+                  id
                 }
               }
             }
@@ -30,7 +29,7 @@ exports.createPages = ({ graphql, actions }) => {
         const posts = result.data.allContentfulPage.edges;
         posts.forEach((post) => {
           createPage({
-            path: post.node.slug ? `/${post.node.slug}/` : '/',
+            path: post.node.slug !== '/' ? `/${post.node.slug}/` : '/',
             component: blogPost,
             context: {
               id: post.node.id,

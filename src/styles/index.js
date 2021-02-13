@@ -2,7 +2,7 @@ export const desktopBreakpoint = '1024px';
 
 export const mobileVw = (px) => `${(px / 320) * 100}vw`;
 
-export const desktopVw = (px) => `${(px / 1366) * 100}vw`;
+export const desktopVw = (px) => `${(px / 1920) * 100}vw`;
 
 export const ease = {
   expo: 'cubic-bezier(1.000, 0.000, 0.000, 1.000)',
@@ -23,6 +23,8 @@ export const colors = {
 
 export const fonts = {
   normal: 'sans-serif',
+  title: 'Helvetica',
+  poppins: 'Poppins',
 };
 
 export const shortMobVw = (values) => values.map((value) => mobileVw(value)).join(' ');
