@@ -12,10 +12,10 @@ const Hero = ({
 }) => {
   const refContainer = useRef(null);
   const itemsRef = useRef([]);
-  const x = itemsRef.current.map((item) => item);
-  const z = x.map((item) => [...item.children]);
 
   const handleMouse = (e) => {
+    const x = itemsRef.current.map((item) => item);
+    const z = x.map((item) => [...item.children]);
     [...z.flat()].map((item) => {
       const rect = item.getBoundingClientRect();
       const d = 30;
@@ -29,6 +29,8 @@ const Hero = ({
   };
 
   const handleMouseOut = () => {
+    const x = itemsRef.current.map((item) => item);
+    const z = x.map((item) => [...item.children]);
     [...z.flat()].map((item) => {
       TweenMax.to(item, 0.7, { x: 0, y: 0 });
     });
