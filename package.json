@@ -23,6 +23,7 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
     "react-id-swiper": "^4.0.0",
+    "react-smooth-scrolling": "^1.0.2",
     "smooth-scrolling": "^2.3.12",
     "styled-components": "^5.2.1",
     "swiper": "^6.3.5",
