@@ -21,6 +21,7 @@ const Template = ({ children }) => {
   }, []);
 
   return (
+    (typeof window !== 'undefined') && (
     <Container>
       <SmoothProvider ase={0.08} skew>
         <div className="vs-section">
@@ -28,10 +29,9 @@ const Template = ({ children }) => {
           {children}
           <Footer />
         </div>
-
       </SmoothProvider>
-
     </Container>
+    )
   );
 };
 
