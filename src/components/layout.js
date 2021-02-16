@@ -2,10 +2,12 @@ import React, { useEffect, useRef } from 'react';
 import './base.css';
 import { SmoothProvider } from 'react-smooth-scrolling';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
-import LocomotiveScroll from 'locomotive-scroll';
+// import LocomotiveScroll from 'locomotive-scroll';
 import Container from './container';
 import Navigation from './navigation';
 import Footer from './Footer';
+
+const LocomotiveScroll = typeof window !== 'undefined' ? require('locomotive-scroll').default : null;
 
 const Template = ({ children }) => {
   // window.document = {};
