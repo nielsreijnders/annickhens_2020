@@ -6,6 +6,7 @@ import Image from 'gatsby-image';
 import styled, { keyframes } from 'styled-components';
 import Swiper from 'react-id-swiper';
 import 'swiper/swiper-bundle.css';
+import LocomotiveScroll from 'locomotive-scroll';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import Banner from '../components/Banner';
@@ -30,22 +31,38 @@ const Page = ({
 }) => {
   console.log(sections);
 
+  // useEffect(() => {
+  //   const scroll = new LocomotiveScroll({
+  //     el: scrollRef.current,
+  //     smooth: true,
+  //   });
+
+  //   scroll.destroy();
+
+  //   setTimeout(() => {
+  //     scroll.init();
+  //   }, 100);
+  // });
+
+  const scrollRef = React.createRef();
+
   return (
     <Layout location={location}>
       {sections.map((data: any, i: number, array: any) => {
         switch (data.__typename) {
           case 'ContentfulComponentHero':
-            return <Hero data={data} />;
+            return <div data-scroll><Hero data={data} /></div>;
           case 'ContentfulComponentFeatured':
-            return <Featured data={data} />;
+            return <div data-scroll><Featured data={data} /></div>;
           case 'ContentfulComponentAbout':
-            return <About data={data} />;
+            return <div data-scroll><About data={data} /></div>;
           case 'ContentfulComponentBanner':
-            return <Banner data={data} />;
+            return <div data-scroll><Banner data={data} /></div>;
           default:
             return null;
         }
       })}
+
     </Layout>
   );
 };

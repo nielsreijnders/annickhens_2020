@@ -14,6 +14,7 @@ const Hero = ({
   const itemsRef = useRef([]);
 
   const handleMouse = (e) => {
+    console.log('HUHUHUHH');
     const x = itemsRef.current.map((item) => item);
     const z = x.map((item) => [...item.children]);
     [...z.flat()].map((item) => {
@@ -32,15 +33,15 @@ const Hero = ({
     const x = itemsRef.current.map((item) => item);
     const z = x.map((item) => [...item.children]);
     [...z.flat()].map((item) => {
-      TweenMax.to(item, 0.7, { x: 0, y: 0 });
+      TweenMax.to(item, 0.96, { x: 0, y: 0 });
     });
   };
 
   return (
     <StyledHero>
       <StyledImage fluid={image.fluid} />
-      <div onMouseLeave={(e) => handleMouseOut(e)} onMouseMove={(e) => handleMouse(e)}>
-        <Container ref={refContainer}>
+      <div>
+        <Container onMouseLeave={(e) => handleMouseOut(e)} onMouseMove={(e) => handleMouse(e)} ref={refContainer}>
           {[...Array(2)].map((item, index1) => (
             <div key={index1}>
               {backgroundText.map((text, index2) => (
@@ -85,7 +86,7 @@ const Container = styled.div`
   left: 50%;
   transform: translate(-50%,-50%);
   font-family: 'poppins';
-  font-size: ${desktopVw(12)};
+  font-size: ${desktopVw(14)};
 
   div:first-child {
     /* margin: 0 0 ${desktopVw(300)} 0; */

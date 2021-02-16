@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import './base.css';
 import { SmoothProvider } from 'react-smooth-scrolling';
+import { Parallax, ParallaxLayer } from '@react-spring/parallax';
+import LocomotiveScroll from 'locomotive-scroll';
 import Container from './container';
 import Navigation from './navigation';
 import Footer from './Footer';
@@ -20,17 +22,29 @@ const Template = ({ children }) => {
     // smooth.init();
   }, []);
 
+  // const ref = useRef<Parallax>();
+
+  useEffect(() => {
+    const scroll = new LocomotiveScroll({
+      el: scrollRef.current,
+      smooth: true,
+      speed: -1,
+    });
+  });
+
+  const scrollRef = React.createRef();
+
   return (
     (typeof window !== 'undefined') && (
-    <Container>
-      <SmoothProvider ase={0.08} skew>
-        <div className="smooth tf you looking at">
-          <Navigation />
-          {children}
-          <Footer />
+      <Container>
+        <div className="smooth">
+          <div ref={scrollRef} className="scroll">
+            <Navigation />
+            {children}
+            <Footer />
+          </div>
         </div>
-      </SmoothProvider>
-    </Container>
+      </Container>
     )
   );
 };
