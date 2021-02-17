@@ -51,13 +51,13 @@ const Page = ({
       {sections.map((data: any, i: number, array: any) => {
         switch (data.__typename) {
           case 'ContentfulComponentHero':
-            return <div data-scroll><Hero data={data} /></div>;
+            return <Hero data={data} />;
           case 'ContentfulComponentFeatured':
-            return <div data-scroll><Featured data={data} /></div>;
+            return <Featured data={data} />;
           case 'ContentfulComponentAbout':
-            return <div data-scroll><About data={data} /></div>;
+            return <About data={data} />;
           case 'ContentfulComponentBanner':
-            return <div data-scroll><Banner data={data} /></div>;
+            return <Banner data={data} />;
           default:
             return null;
         }
