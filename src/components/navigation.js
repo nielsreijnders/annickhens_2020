@@ -30,7 +30,7 @@ const StyledNavigation = styled.div`
   color: #fff;
   justify-content: space-between;
   font-family: ${fonts.poppins};
-  font-weight: 500;
+  font-weight: 600;
   font-size: ${desktopVw(15)};
   letter-spacing: ${letterSpacing(80)}
 `;
