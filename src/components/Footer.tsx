@@ -11,7 +11,7 @@ const Footer = () => (
   <StyledFooter>
     <Container>
       <ul>
-        <li>HELAAS IS NIKS VOOR ALTIJD</li>
+        <li>THEEEE END!!!</li>
         <li>NIELS.REIJNDERS1@GMAIL.COM</li>
         <li>VUGHT, NEDERLAND</li>
         <li>STUUR FF EEN BERICHTIE VOOR TELEFOON</li>

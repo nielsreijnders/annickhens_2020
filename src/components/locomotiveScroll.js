@@ -9,10 +9,9 @@ const Scroll = (callbacks) => {
     locomotiveScroll = new LocomotiveScroll({
       el: document.querySelector('#___gatsby'),
       smooth: true,
-      smoothMobile: false,
+      // smoothMobile: false,
       getDirection: true,
-      touchMultiplier: 2.5,
-      lerp: 0.15,
+      touchMultiplier: 1.5,
     });
     locomotiveScroll.update();
 
