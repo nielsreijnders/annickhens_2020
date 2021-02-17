@@ -10,8 +10,9 @@ const Scroll = (callbacks) => {
       el: document.querySelector('#___gatsby'),
       smooth: true,
       // smoothMobile: false,
-      getDirection: true,
-      touchMultiplier: 1.5,
+      // getDirection: true,
+      touchMultiplier: 2.5,
+      // resetNativeScroll: false,
     });
     locomotiveScroll.update();
 
