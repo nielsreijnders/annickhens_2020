@@ -13,35 +13,35 @@ const Hero = ({
   const refContainer = useRef(null);
   const itemsRef = useRef([]);
 
-  const handleMouse = (e) => {
-    console.log('HUHUHUHH');
-    const x = itemsRef.current.map((item) => item);
-    const z = x.map((item) => [...item.children]);
-    [...z.flat()].map((item) => {
-      const rect = item.getBoundingClientRect();
-      const d = 30;
-      const dx = e.clientX - rect.left;
-      const dy = e.clientY - rect.top;
-      const angle = Math.atan2(dy, dx);
-      TweenMax.to(item, 0.95, {
-        x: Math.cos(angle) * d, y: Math.sin(angle) * d, transformOrigin: '50% 50%', scale: 1,
-      });
-    });
-  };
+  // const handleMouse = (e) => {
+  //   console.log('HUHUHUHH');
+  //   const x = itemsRef.current.map((item) => item);
+  //   const z = x.map((item) => [...item.children]);
+  //   [...z.flat()].map((item) => {
+  //     const rect = item.getBoundingClientRect();
+  //     const d = 30;
+  //     const dx = e.clientX - rect.left;
+  //     const dy = e.clientY - rect.top;
+  //     const angle = Math.atan2(dy, dx);
+  //     TweenMax.to(item, 0.95, {
+  //       x: Math.cos(angle) * d, y: Math.sin(angle) * d, transformOrigin: '50% 50%', scale: 1,
+  //     });
+  //   });
+  // };
 
-  const handleMouseOut = () => {
-    const x = itemsRef.current.map((item) => item);
-    const z = x.map((item) => [...item.children]);
-    [...z.flat()].map((item) => {
-      TweenMax.to(item, 0.96, { x: 0, y: 0 });
-    });
-  };
+  // const handleMouseOut = () => {
+  //   const x = itemsRef.current.map((item) => item);
+  //   const z = x.map((item) => [...item.children]);
+  //   [...z.flat()].map((item) => {
+  //     TweenMax.to(item, 0.96, { x: 0, y: 0 });
+  //   });
+  // };
 
   return (
     <StyledHero>
       <StyledImage fluid={image.fluid} />
       <div>
-        <Container onMouseLeave={(e) => handleMouseOut(e)} onMouseMove={(e) => handleMouse(e)} ref={refContainer}>
+        {/* <Container onMouseLeave={(e) => handleMouseOut(e)} onMouseMove={(e) => handleMouse(e)} ref={refContainer}>
           {[...Array(2)].map((item, index1) => (
             <div key={index1}>
               {backgroundText.map((text, index2) => (
@@ -55,7 +55,8 @@ const Hero = ({
               ))}
             </div>
           ))}
-        </Container>
+        </Container> */}
+        <Title>{title}</Title>
       </div>
     </StyledHero>
   );
@@ -79,7 +80,7 @@ const Title = styled.h1`
 `;
 
 const Container = styled.div`
-  width: 70%;
+  width: 60%;
   margin: 0 auto;
   position: absolute;
   top: 50%;
@@ -89,7 +90,7 @@ const Container = styled.div`
   font-size: ${desktopVw(14)};
 
   div:first-child {
-    /* margin: 0 0 ${desktopVw(300)} 0; */
+    margin: 0 0 ${desktopVw(300)} 0;
   }
 
   span {
@@ -99,7 +100,7 @@ const Container = styled.div`
   p {
     display: flex;
     justify-content: space-between;
-    margin: ${desktopVw(180)} 0;
+    margin: ${desktopVw(120)} 0;
   }
 `;
 

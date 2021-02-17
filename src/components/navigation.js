@@ -32,7 +32,11 @@ const StyledNavigation = styled.div`
   font-family: ${fonts.poppins};
   font-weight: 600;
   font-size: ${desktopVw(15)};
-  letter-spacing: ${letterSpacing(80)}
+  letter-spacing: ${letterSpacing(80)};
+
+  h3 {
+    font-weight: 600;
+  }
 `;
 
 const StyledUl = styled.ul`
