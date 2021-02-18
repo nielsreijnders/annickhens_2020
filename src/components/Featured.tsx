@@ -65,13 +65,14 @@ const Subtitle = styled.h6`
 `;
 
 const Container = styled.div`
-  width: 50%;
+  /* width: 50%; */
   height: ${desktopVw(1080)};
   position: relative;
 `;
 
 const Wrapper = styled.div`  
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   font-family: ${fonts.title};
   font-size: ${desktopVw(16)};
   letter-spacing: ${letterSpacing(80)};

@@ -3,9 +3,9 @@ import { Link } from 'gatsby';
 import styled, { keyframes } from 'styled-components';
 import { desktopVw, fonts, letterSpacing } from '../styles';
 
-export default () => (
+export default ({ color }) => (
   <Animation>
-    <StyledNavigation className="transform" role="navigation">
+    <StyledNavigation color={color} className="transform" role="navigation">
       <h3>
         <Link to="/">
           NIELS REIJNDERS
@@ -17,7 +17,7 @@ export default () => (
             WORK
           </Link>
         </li>
-        <li>ABOUT</li>
+        <li><Link to="/about">ABOUT</Link></li>
         <li>CONTACT</li>
       </StyledUl>
       <p>
@@ -37,7 +37,7 @@ const StyledNavigation = styled.div`
   left: 0;
   z-index: 3;
   width: calc(100% - ${desktopVw(200)});
-  color: #fff;
+  color: ${(props) => (props.color ? '#fff' : '#000')};
   justify-content: space-between;
   font-family: ${fonts.poppins};
   font-weight: 600;
@@ -46,6 +46,10 @@ const StyledNavigation = styled.div`
 
   h3 {
     font-weight: 600;
+  }
+
+  a {
+    text-decoration: none;
   }
 `;
 

@@ -36,6 +36,9 @@ const Loader = () => {
             yPercent: 101,
             ease: Power4.easeInOut,
           });
+          TweenMax.staggerFromTo('.stagger', 2, { y: -100, skewY: 3, opacity: 1 }, {
+            delay: 0.6, y: 0, skewY: 0, opacity: 1,
+          }, 0.1);
         },
       }, '=+1').set(refLoader.current, { autoAlpha: 0 })
       .set('#___gatsby', { className: '+=active' }, '=-1.5');

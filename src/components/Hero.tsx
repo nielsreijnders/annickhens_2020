@@ -38,9 +38,7 @@ const Hero = ({
   };
 
   useEffect(() => {
-    TweenMax.staggerFromTo(itemsRef.current, 2, { y: -100, skewY: 3, opacity: 1 }, {
-      delay: 4.5, y: 0, skewY: 0, opacity: 1,
-    }, 0.1);
+
   }, []);
 
   return (
@@ -51,7 +49,7 @@ const Hero = ({
           {[...Array(2)].map((item, index1) => (
             <div key={index1}>
               {backgroundText.map((text, index2) => (
-                <p ref={(el) => itemsRef.current[(index1 === 0 && index2 === 1) ? 3 : (index1 + index2)] = el}>
+                <p className="stagger" ref={(el) => itemsRef.current[(index1 === 0 && index2 === 1) ? 3 : (index1 + index2)] = el}>
                   {text.split('').map((letter, index3) => (
                     <span>
                       {letter}

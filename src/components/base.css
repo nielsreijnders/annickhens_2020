@@ -114,7 +114,7 @@ table {
 }
 
 .transform {
-  transition: 1.2s ease;
+  transition: transform 1.2s ease;
   will-change: transform;
   transform: translate3d(0,-75px,0) skewY(0deg);
 }

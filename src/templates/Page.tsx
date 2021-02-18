@@ -10,6 +10,7 @@ import LocomotiveScroll from 'locomotive-scroll';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import Banner from '../components/Banner';
+import Text from '../components/Text';
 import Featured from '../components/Featured';
 import Layout from '../components/layout';
 import {
@@ -44,6 +45,8 @@ const Page = ({
             return <About data={data} />;
           case 'ContentfulComponentBanner':
             return <Banner data={data} />;
+          case 'ContentfulComponentAboutPage':
+            return <Text data={data} />;
           default:
             return null;
         }
@@ -58,6 +61,23 @@ export const pageQuery = graphql`
     contentfulPage(id: { eq: $id }) {
       slug
       sections {
+        ... on ContentfulComponentAboutPage {
+          id
+          name
+          description {
+            description
+          }
+          image1 {
+            fluid(maxWidth: 2600) {
+              ...GatsbyContentfulFluid_withWebp_noBase64
+            }
+          }
+          image2 {
+            fluid(maxWidth: 2600) {
+              ...GatsbyContentfulFluid_withWebp_noBase64
+            }
+          }
+        }
         ... on ContentfulComponentBanner {
           id
           name
