@@ -37,7 +37,7 @@ const StyledNavigation = styled.div`
   left: 0;
   z-index: 3;
   width: calc(100% - ${desktopVw(200)});
-  color: ${(props) => (props.color ? '#fff' : '#000')};
+  color: ${(props) => (props.color ? '#fff' : '#fff')};
   justify-content: space-between;
   font-family: ${fonts.poppins};
   font-weight: 600;

@@ -17,7 +17,7 @@ const Text = ({
       <StyledImage1 fluid={image1.fluid} />
       <Wrapper>
         <div>
-          <StyledImage2 fluid={image1.fluid} />
+          <StyledImage2 fluid={image2.fluid} />
           <Description>{description.description}</Description>
         </div>
       </Wrapper>
@@ -40,7 +40,7 @@ const Wrapper = styled.div`
 
 const StyledImage1 = styled(Image)`
   width: 50%;
-  height: 100vh;
+  height: ${desktopVw(1200)};
   position: relative;
   top: 0;
   left: 0;
