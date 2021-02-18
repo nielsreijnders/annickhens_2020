@@ -47,8 +47,8 @@ const StyledImage1 = styled(Image)`
 `;
 
 const StyledImage2 = styled(Image)`
-  width: ${desktopVw(250)};
-  height: ${desktopVw(250)};
+  width: ${desktopVw(300)};
+  height: ${desktopVw(300)};
   position: relative;
   top: 0;
   left: 0;
@@ -60,7 +60,7 @@ const Description = styled.p`
   position: relative;
   width: ${desktopVw(670)};
   text-align: center;
-  letter-spacing: ${letterSpacing(80)};
+  letter-spacing: ${letterSpacing(80)};x
   font-family: ${fonts.title};
   text-transform: uppercase;
   font-size: ${desktopVw(16)};

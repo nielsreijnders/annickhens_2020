@@ -31,13 +31,14 @@ const Animation = styled.div``;
 
 const StyledNavigation = styled.div`
   display: flex;
-  margin: ${desktopVw(65)} ${desktopVw(100)};
+  padding: ${desktopVw(65)} ${desktopVw(100)};
   position: absolute;
   top: 0;
   left: 0;
   z-index: 3;
   width: calc(100% - ${desktopVw(200)});
   color: ${(props) => (props.color ? '#fff' : '#fff')};
+  /* background: white; */
   justify-content: space-between;
   font-family: ${fonts.poppins};
   font-weight: 600;

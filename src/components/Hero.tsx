@@ -45,7 +45,7 @@ const Hero = ({
     <StyledHero>
       <StyledImage fluid={image.fluid} />
       <div>
-        <Container onMouseLeave={(e) => handleMouseOut(e)} onMouseMove={(e) => handleMouse(e)} ref={refContainer}>
+        {/* <Container onMouseLeave={(e) => handleMouseOut(e)} onMouseMove={(e) => handleMouse(e)} ref={refContainer}>
           {[...Array(2)].map((item, index1) => (
             <div key={index1}>
               {backgroundText.map((text, index2) => (
@@ -58,8 +58,8 @@ const Hero = ({
                 </p>
               ))}
             </div>
-          ))}
-        </Container>
+          ))} */}
+        {/* </Container> */}
         {/* <Title>{title}</Title> */}
 
       </div>
@@ -74,15 +74,15 @@ const StyledHero = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: ${desktopVw(58)};
-  font-family: ${fonts.title};
-  font-style: italic;
-  font-weight: bold;
-  letter-spacing: ${letterSpacing(400)};
+  font-size: ${desktopVw(200)};
+  font-family: "Times sans serif";
+  /* font-style: italic; */
+  /* font-weight: bold; */
+  letter-spacing: ${letterSpacing(200)};
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
+  bottom: 0%;
+  left: 0%;
+  /* transform: translate(-50%,-50%); */
 `;
 
 const StyledImage2 = styled(Image)`
