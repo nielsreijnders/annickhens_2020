@@ -12,7 +12,6 @@ const Template = ({ children, location }) => {
 
   return (
     <>
-      <Loader />
       <Scroll callbacks={location} />
       <Container>
         <div data-scroll-section>

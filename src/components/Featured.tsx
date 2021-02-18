@@ -29,7 +29,7 @@ const Featured = ({
         {text}
       </Subtitle>
       <WrapperCases>
-        {secondCases.map(({ title, image }, index) => (
+        {secondCases && secondCases.map(({ title, image }, index) => (
           <ContainerCases>
             <StyledImage fluid={image.fluid} />
             {index === 0 && (<p>VIEW PROJECT</p>)}
@@ -49,7 +49,7 @@ const StyledFeatured = styled.div`
 `;
 
 const Title = styled.h1`
-  margin: ${desktopVw(200)} 0 ${desktopVw(200)} ${desktopVw(100)};
+  padding: ${desktopVw(200)} 0 ${desktopVw(200)} ${desktopVw(100)};
   font-family: ${fonts.poppins};
   font-size: ${desktopVw(54)};
   letter-spacing: ${letterSpacing(70)};

@@ -7,10 +7,16 @@ export default () => (
   <Animation>
     <StyledNavigation className="transform" role="navigation">
       <h3>
-        NIELS REIJNDERS
+        <Link to="/">
+          NIELS REIJNDERS
+        </Link>
       </h3>
       <StyledUl>
-        <li>WORK</li>
+        <li>
+          <Link to="/work">
+            WORK
+          </Link>
+        </li>
         <li>ABOUT</li>
         <li>CONTACT</li>
       </StyledUl>

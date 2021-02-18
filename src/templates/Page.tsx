@@ -31,23 +31,9 @@ const Page = ({
 }) => {
   console.log(sections);
 
-  // useEffect(() => {
-  //   const scroll = new LocomotiveScroll({
-  //     el: scrollRef.current,
-  //     smooth: true,
-  //   });
-
-  //   scroll.destroy();
-
-  //   setTimeout(() => {
-  //     scroll.init();
-  //   }, 100);
-  // });
-
-  const scrollRef = React.createRef();
-
   return (
-    <Layout location={location}>
+    // <Layout location={location}>
+    <>
       {sections.map((data: any, i: number, array: any) => {
         switch (data.__typename) {
           case 'ContentfulComponentHero':
@@ -62,8 +48,8 @@ const Page = ({
             return null;
         }
       })}
-
-    </Layout>
+    </>
+  // </Layout>
   );
 };
 
