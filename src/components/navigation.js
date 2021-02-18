@@ -4,20 +4,24 @@ import styled, { keyframes } from 'styled-components';
 import { desktopVw, fonts, letterSpacing } from '../styles';
 
 export default () => (
-  <StyledNavigation role="navigation">
-    <h3>
-      NIELS REIJNDERS
-    </h3>
-    <StyledUl>
-      <li>WORK</li>
-      <li>ABOUT</li>
-      <li>CONTACT</li>
-    </StyledUl>
-    <p>
-      AVAILABLE FOR WORK
-    </p>
-  </StyledNavigation>
+  <Animation>
+    <StyledNavigation className="transform" role="navigation">
+      <h3>
+        NIELS REIJNDERS
+      </h3>
+      <StyledUl>
+        <li>WORK</li>
+        <li>ABOUT</li>
+        <li>CONTACT</li>
+      </StyledUl>
+      <p>
+        AVAILABLE FOR WORK
+      </p>
+    </StyledNavigation>
+  </Animation>
 );
+
+const Animation = styled.div``;
 
 const StyledNavigation = styled.div`
   display: flex;

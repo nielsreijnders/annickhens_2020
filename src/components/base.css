@@ -34,6 +34,7 @@ body {
   /* background: #dce6fc; */
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-image: linear-gradient(90deg, #687b7f80, #fff 70%);
 }
 
 
@@ -106,4 +107,14 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+.active .transform {
+  transform: translate3d(0,0,0) skewY(0deg);
+}
+
+.transform {
+  transition: 1.2s ease;
+  will-change: transform;
+  transform: translate3d(0,-75px,0) skewY(0deg);
 }

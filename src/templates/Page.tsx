@@ -97,6 +97,11 @@ export const pageQuery = graphql`
               ...GatsbyContentfulFluid_withWebp_noBase64
             }
           }
+          image2 {
+            fluid(maxWidth: 2600) {
+              ...GatsbyContentfulFluid_withWebp_noBase64
+            }
+          }
         }
         ... on ContentfulComponentAbout {
           id

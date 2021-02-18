@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import Image from 'gatsby-image';
 import styled, { keyframes } from 'styled-components';
 import { TweenMax } from 'gsap';
@@ -7,41 +7,47 @@ import { desktopVw, fonts, letterSpacing } from '../styles';
 
 const Hero = ({
   data: {
-    title, image, backgroundText,
+    title, image, backgroundText, image2,
   },
 }) => {
   const refContainer = useRef(null);
   const itemsRef = useRef([]);
 
-  // const handleMouse = (e) => {
-  //   console.log('HUHUHUHH');
-  //   const x = itemsRef.current.map((item) => item);
-  //   const z = x.map((item) => [...item.children]);
-  //   [...z.flat()].map((item) => {
-  //     const rect = item.getBoundingClientRect();
-  //     const d = 30;
-  //     const dx = e.clientX - rect.left;
-  //     const dy = e.clientY - rect.top;
-  //     const angle = Math.atan2(dy, dx);
-  //     TweenMax.to(item, 0.95, {
-  //       x: Math.cos(angle) * d, y: Math.sin(angle) * d, transformOrigin: '50% 50%', scale: 1,
-  //     });
-  //   });
-  // };
+  const handleMouse = (e) => {
+    console.log('HUHUHUHH');
+    const x = itemsRef.current.map((item) => item);
+    const z = x.map((item) => [...item.children]);
+    [...z.flat()].map((item) => {
+      const rect = item.getBoundingClientRect();
+      const d = 30;
+      const dx = e.clientX - rect.left;
+      const dy = e.clientY - rect.top;
+      const angle = Math.atan2(dy, dx);
+      TweenMax.to(item, 0.95, {
+        x: Math.cos(angle) * d, y: Math.sin(angle) * d, transformOrigin: '50% 50%', scale: 1,
+      });
+    });
+  };
 
-  // const handleMouseOut = () => {
-  //   const x = itemsRef.current.map((item) => item);
-  //   const z = x.map((item) => [...item.children]);
-  //   [...z.flat()].map((item) => {
-  //     TweenMax.to(item, 0.96, { x: 0, y: 0 });
-  //   });
-  // };
+  const handleMouseOut = () => {
+    const x = itemsRef.current.map((item) => item);
+    const z = x.map((item) => [...item.children]);
+    [...z.flat()].map((item) => {
+      TweenMax.to(item, 0.96, { x: 0, y: 0 });
+    });
+  };
+
+  useEffect(() => {
+    TweenMax.staggerFromTo(itemsRef.current, 2, { y: -100, skewY: 3, opacity: 1 }, {
+      delay: 4.5, y: 0, skewY: 0, opacity: 1,
+    }, 0.1);
+  }, []);
 
   return (
     <StyledHero>
       <StyledImage fluid={image.fluid} />
       <div>
-        {/* <Container onMouseLeave={(e) => handleMouseOut(e)} onMouseMove={(e) => handleMouse(e)} ref={refContainer}>
+        <Container onMouseLeave={(e) => handleMouseOut(e)} onMouseMove={(e) => handleMouse(e)} ref={refContainer}>
           {[...Array(2)].map((item, index1) => (
             <div key={index1}>
               {backgroundText.map((text, index2) => (
@@ -55,9 +61,11 @@ const Hero = ({
               ))}
             </div>
           ))}
-        </Container> */}
-        <Title>{title}</Title>
+        </Container>
+        {/* <Title>{title}</Title> */}
+
       </div>
+      {/* <StyledImage2 fluid={image2.fluid} /> */}
     </StyledHero>
   );
 };
@@ -79,6 +87,15 @@ const Title = styled.h1`
   transform: translate(-50%,-50%);
 `;
 
+const StyledImage2 = styled(Image)`
+  position: absolute !important;
+  top: 50%;
+  left: 50%;
+  width: ${desktopVw(630)};
+  height: ${desktopVw(870)};
+  transform: translate(-50%,-50%);
+`;
+
 const Container = styled.div`
   width: 60%;
   margin: 0 auto;
@@ -88,9 +105,10 @@ const Container = styled.div`
   transform: translate(-50%,-50%);
   font-family: 'poppins';
   font-size: ${desktopVw(14)};
+  font-weight: 600;
 
   div:first-child {
-    margin: 0 0 ${desktopVw(300)} 0;
+    margin: 0 0 ${desktopVw(0)} 0;
   }
 
   span {
@@ -100,7 +118,7 @@ const Container = styled.div`
   p {
     display: flex;
     justify-content: space-between;
-    margin: ${desktopVw(120)} 0;
+    margin: ${desktopVw(160)} 0;
   }
 `;
 

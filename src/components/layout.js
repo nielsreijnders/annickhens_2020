@@ -5,12 +5,14 @@ import Navigation from './navigation';
 import Footer from './Footer';
 import Scroll from './locomotiveScroll';
 import './locomotive-scroll.css';
+import Loader from './Loader';
 
 const Template = ({ children, location }) => {
   console.log(location);
 
   return (
     <>
+      <Loader />
       <Scroll callbacks={location} />
       <Container>
         <div data-scroll-section>

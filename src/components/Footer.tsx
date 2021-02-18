@@ -11,17 +11,16 @@ const Footer = () => (
   <StyledFooter>
     <Container>
       <ul>
-        <li>THEEEE END!!!</li>
         <li>NIELS.REIJNDERS1@GMAIL.COM</li>
         <li>VUGHT, NEDERLAND</li>
-        <li>STUUR FF EEN BERICHTIE VOOR TELEFOON</li>
+        <li>FOOTER STILL UNDER CONSTRUCTION</li>
       </ul>
-      <ul>
+      {/* <ul>
         <li>GITHUB</li>
         <li>STACKOVERFLOW</li>
         <li>AWWWARDS</li>
         <li>DRIBBLE</li>
-      </ul>
+      </ul> */}
     </Container>
   </StyledFooter>
 );
