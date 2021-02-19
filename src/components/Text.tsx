@@ -17,10 +17,11 @@ const Text = ({
       <StyledImage1 fluid={image1.fluid} />
       <Wrapper>
         <div>
-          <StyledImage2 fluid={image2.fluid} />
+          <StyledImage2 fluid={image1.fluid} />
           <Description>{description.description}</Description>
         </div>
       </Wrapper>
+      {/* <Title>efijof</Title> */}
     </StyledText>
   );
 };
@@ -29,6 +30,18 @@ const StyledText = styled.div`
   color: #000;
   position: relative;
   display: flex;
+`;
+
+const Title = styled.h1`
+  font-size: ${desktopVw(200)};
+  font-family: "Times sans serif";
+  /* font-style: italic; */
+  /* font-weight: bold; */
+  letter-spacing: ${letterSpacing(200)};
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  /* transform: translate(-50%,-50%); */
 `;
 
 const Wrapper = styled.div`
@@ -40,7 +53,7 @@ const Wrapper = styled.div`
 
 const StyledImage1 = styled(Image)`
   width: 50%;
-  height: ${desktopVw(1200)};
+  height: 100vh;
   position: relative;
   top: 0;
   left: 0;

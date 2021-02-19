@@ -13,12 +13,13 @@ export default ({ color }) => (
       </h3>
       <StyledUl>
         <li>
-          <Link to="/work">
-            WORK
+          <Link to="/">
+            HOME
           </Link>
         </li>
-        <li><Link to="/about">ABOUT</Link></li>
-        <li>CONTACT</li>
+
+        <li><Link to="/work">WORK</Link></li>
+        <li><Link to="/">CONTACT</Link></li>
       </StyledUl>
       <p>
         AVAILABLE FOR WORK
@@ -37,7 +38,7 @@ const StyledNavigation = styled.div`
   left: 0;
   z-index: 3;
   width: calc(100% - ${desktopVw(200)});
-  color: ${(props) => (props.color ? '#fff' : '#fff')};
+  color: ${(props) => (props.color ? '#000' : '#000')};
   /* background: white; */
   justify-content: space-between;
   font-family: ${fonts.poppins};

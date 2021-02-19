@@ -69,7 +69,7 @@ const Hero = ({
 };
 
 const StyledHero = styled.div`
-  color: #fff;
+  color: #000;
   position: relative;
 `;
 
