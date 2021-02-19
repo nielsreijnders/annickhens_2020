@@ -13,17 +13,16 @@ export default ({ color }) => (
       </h3>
       <StyledUl>
         <li>
-          <Link to="/">
-            HOME
+          <Link to="/work">
+            WORK
           </Link>
         </li>
 
-        <li><Link to="/work">WORK</Link></li>
-        <li><Link to="/">CONTACT</Link></li>
+        <li><Link to="/about">ABOUT</Link></li>
       </StyledUl>
-      <p>
+      {/* <p>
         AVAILABLE FOR WORK
-      </p>
+      </p> */}
     </StyledNavigation>
   </Animation>
 );
