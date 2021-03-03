@@ -15,19 +15,9 @@ const Featured = ({
     <StyledFeatured>
       {/* <StyledImage fluid={image.fluid} /> */}
       <Title>{title}</Title>
-      <Wrapper>
-        {cases.map(({ title, image }) => (
-          <Container>
-            <StyledImage fluid={image.fluid} />
-            <CaseTitle>
-              {title}
-            </CaseTitle>
-          </Container>
-        ))}
-      </Wrapper>
-      <Subtitle>
+      {/* <Subtitle>
         {text}
-      </Subtitle>
+      </Subtitle> */}
       <WrapperCases>
         {secondCases && secondCases.map(({ title, image }, index) => (
           <ContainerCases>

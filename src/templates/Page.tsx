@@ -33,7 +33,6 @@ const Page = ({
   console.log(sections);
 
   return (
-    // <Layout location={location}>
     <>
       {sections.map((data: any, i: number, array: any) => {
         switch (data.__typename) {
@@ -52,7 +51,6 @@ const Page = ({
         }
       })}
     </>
-  // </Layout>
   );
 };
 
@@ -78,22 +76,6 @@ export const pageQuery = graphql`
             }
           }
         }
-        ... on ContentfulComponentBanner {
-          id
-          name
-          image {
-            fluid {
-              src
-            }
-          }
-          cases {
-            image {
-              fluid {
-                src
-              }
-            }
-          }
-        }
         ... on ContentfulComponentHero {
           id
           title
@@ -108,13 +90,15 @@ export const pageQuery = graphql`
               ...GatsbyContentfulFluid_withWebp_noBase64
             }
           }
-        }
-        ... on ContentfulComponentAbout {
-          id
-          name
-          list
-          title
-          spin
+          cases {
+            image {
+              fluid(maxWidth: 2600) {
+                ...GatsbyContentfulFluid_withWebp_noBase64
+              }
+              title
+            }
+            title
+          }
         }
         ... on ContentfulComponentFeatured {
           id

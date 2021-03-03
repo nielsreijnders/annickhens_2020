@@ -7,70 +7,26 @@ import { desktopVw, fonts, letterSpacing } from '../styles';
 
 const Hero = ({
   data: {
-    title, image, backgroundText, image2,
+    title, image, backgroundText, image2, cases,
   },
 }) => {
   const refContainer = useRef(null);
   const itemsRef = useRef([]);
 
-  const handleMouse = (e) => {
-    console.log('HUHUHUHH');
-    const x = itemsRef.current.map((item) => item);
-    const z = x.map((item) => [...item.children]);
-    [...z.flat()].map((item) => {
-      const rect = item.getBoundingClientRect();
-      const d = 30;
-      const dx = e.clientX - rect.left;
-      const dy = e.clientY - rect.top;
-      const angle = Math.atan2(dy, dx);
-      TweenMax.to(item, 0.95, {
-        x: Math.cos(angle) * d, y: Math.sin(angle) * d, transformOrigin: '50% 50%', scale: 1,
-      });
-    });
-  };
-
-  const handleMouseOut = () => {
-    const x = itemsRef.current.map((item) => item);
-    const z = x.map((item) => [...item.children]);
-    [...z.flat()].map((item) => {
-      TweenMax.to(item, 0.96, { x: 0, y: 0 });
-    });
-  };
-
-  useEffect(() => {
-
-  }, []);
+  console.log(cases);
 
   return (
     <StyledHero>
       <StyledImage fluid={image.fluid} />
-      <div>
-        {/* <Container onMouseLeave={(e) => handleMouseOut(e)} onMouseMove={(e) => handleMouse(e)} ref={refContainer}>
-          {[...Array(2)].map((item, index1) => (
-            <div key={index1}>
-              {backgroundText.map((text, index2) => (
-                <p className="stagger" ref={(el) => itemsRef.current[(index1 === 0 && index2 === 1) ? 3 : (index1 + index2)] = el}>
-                  {text.split('').map((letter, index3) => (
-                    <span>
-                      {letter}
-                    </span>
-                  ))}
-                </p>
-              ))}
-            </div>
-          ))} */}
-        {/* </Container> */}
-        {/* <Title>{title}</Title> */}
-
-      </div>
-      {/* <StyledImage2 fluid={image2.fluid} /> */}
+      <Title>{title}</Title>
     </StyledHero>
   );
 };
 
 const StyledHero = styled.div`
-  color: #000;
+  color: #fff;
   position: relative;
+  height: 100vh;
 `;
 
 const Title = styled.h1`
@@ -78,10 +34,12 @@ const Title = styled.h1`
   font-family: "Times sans serif";
   /* font-style: italic; */
   /* font-weight: bold; */
-  letter-spacing: ${letterSpacing(200)};
   position: absolute;
-  bottom: 0%;
-  left: 0%;
+  top: 50%;
+  left: 50%;
+  text-transform: uppercase;
+  transform: translate(-50%,-50%);
+  z-index: -1;
   /* transform: translate(-50%,-50%); */
 `;
 
@@ -121,8 +79,12 @@ const Container = styled.div`
 `;
 
 const StyledImage = styled(Image)`
-  width: 100%;
-  height: 100vh;
+  width: ${desktopVw(545)};
+  height: calc(100vh - ${desktopVw(240)});
+  top: 50%;
+  left: 50%;
+  position: absolute; 
+  transform: translate(-50%,-50%);
 `;
 
 export default Hero;

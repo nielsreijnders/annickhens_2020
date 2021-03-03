@@ -28,31 +28,24 @@ const Loader = () => {
         },
         0.01,
       )
-      .to(refContainer.current.children[0], 3, {
-        yPercent: -101,
+      .to(refContainer.current, 2, {
+        yPercent: 100,
         ease: Power4.easeInOut,
         onStart: () => {
-          TweenMax.to(refContainer.current.children[1], 3, {
-            yPercent: 101,
-            ease: Power4.easeInOut,
-          });
           TweenMax.staggerFromTo('.stagger', 2, { y: -100, skewY: 3, opacity: 1 }, {
             delay: 0.6, y: 0, skewY: 0, opacity: 1,
           }, 0.1);
         },
-      }, '=+1').set(refLoader.current, { autoAlpha: 0 })
+      }, '=-.5').set(refLoader.current, { autoAlpha: 0 })
       .set('#___gatsby', { className: '+=active' }, '=-1.5');
     return () => {};
   }, []);
 
-  const text = 'PORTFOLIO NIELS';
+  const text = 'WECOULDBEHOMELESS';
 
   return (
     <StyledLoader ref={refLoader}>
-      <LoaderContainer ref={refContainer}>
-        <div />
-        <div />
-      </LoaderContainer>
+      <LoaderContainer ref={refContainer} />
       <Title ref={refTitle}>
         {text.split('').map((letter) => <span>{letter}</span>)}
         {' '}
@@ -77,19 +70,12 @@ const StyledLoader = styled.div`
 `;
 
 const LoaderContainer = styled.div`
-  div {
     background: #fff;
-    height: 50vh;
+    height: 100vh;
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-  }
-
-  div:first-child {
-    bottom: unset;
-    top: 0;
-  }
 `;
 
 const Title = styled.h1`
