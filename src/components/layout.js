@@ -18,7 +18,7 @@ const Template = ({ children, location }) => {
           <div data-scroll>
             <Navigation color={children.key === '/'} />
             {children}
-            <Footer />
+            {/* <Footer /> */}
           </div>
         </div>
       </Container>
