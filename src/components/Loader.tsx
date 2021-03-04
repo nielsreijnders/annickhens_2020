@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import Image from 'gatsby-image';
 import styled, { keyframes } from 'styled-components';
-import gsap, { TweenMax, Power4 } from 'gsap';
+import gsap, { TweenMax, Power3 } from 'gsap';
 import CountUp from 'react-countup';
 
 import { desktopVw, fonts, letterSpacing } from '../styles';
@@ -15,42 +15,41 @@ const Loader = () => {
   const [tl] = useState(gsap.timeline());
 
   useEffect(() => {
-    tl.set(refTitle.current, { autoAlpha: 1 })
+    tl
+      .staggerFromTo(
+        refTitle.current.children,
+        2, { y: -75, skewY: 3, opacity: 0 }, {
+          delay: 1.65, y: 0, skewY: 0, opacity: 1,
+        },
+        0.1,
+      )
       .staggerTo(
         refTitle.current.children,
-        1,
-        {
-          opacity: 0,
-          yPercent: 30,
-          skewY: 2,
-          delay: 1.7,
-          // ease: Power4.easeInOut,
-        },
-        0.01,
+        1, { y: 5, opacity: 0 },
+        0.3,
       )
-      .to(refContainer.current, 2, {
+      .to(refContainer.current, 1.5, {
         yPercent: 100,
-        ease: Power4.easeInOut,
-        onStart: () => {
-          TweenMax.staggerFromTo('.stagger', 2, { y: -100, skewY: 3, opacity: 1 }, {
-            delay: 0.6, y: 0, skewY: 0, opacity: 1,
-          }, 0.1);
-        },
-      }, '=-.5').set(refLoader.current, { autoAlpha: 0 })
+        ease: Power3.easeInOut,
+      }, '=-1').set(refLoader.current, { autoAlpha: 0 })
       .set('#___gatsby', { className: '+=active' }, '=-1.5');
     return () => {};
   }, []);
 
-  const text = 'WECOULDBEHOMELESS';
+  const text = 'issa vibe';
 
   return (
     <StyledLoader ref={refLoader}>
       <LoaderContainer ref={refContainer} />
-      <Title ref={refTitle}>
-        {text.split('').map((letter) => <span>{letter}</span>)}
+      <Title>
+        {/* {text.split('').map((letter) => <span>{letter}</span>)}
         {' '}
-        <CountUp delay={1.2} start={2020} end={2001} duration={2} />
+        <CountUp delay={1.2} start={2020} end={2001} duration={2} /> */}
+
       </Title>
+      <StyledUl ref={refTitle}>
+        {[...Array(4)].map((item, index) => <li>{text.split('').map((letter) => <span>{letter}</span>)}</li>)}
+      </StyledUl>
     </StyledLoader>
   );
 };
@@ -67,6 +66,9 @@ const StyledLoader = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: ${desktopVw(12)};
+  font-family: ${fonts.poppins};
+  font-weight: regular;
 `;
 
 const LoaderContainer = styled.div`
@@ -79,9 +81,7 @@ const LoaderContainer = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: ${desktopVw(16)};
-  font-family: ${fonts.poppins};
-  font-weight: bold;
+  
   letter-spacing: ${letterSpacing(80)};
   position: absolute;
   top: 50%;
@@ -119,9 +119,19 @@ const Container = styled.div`
   }
 `;
 
-const StyledImage = styled(Image)`
-  width: 100%;
-  height: 100vh;
+const StyledUl = styled.ul`
+  width: 60%;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%,-50%);
+
+  li { 
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: ${desktopVw(150)} 0;
+  };
 `;
 
 export default Loader;

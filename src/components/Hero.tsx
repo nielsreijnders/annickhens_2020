@@ -1,7 +1,7 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import Image from 'gatsby-image';
 import styled, { keyframes } from 'styled-components';
-import { TweenMax } from 'gsap';
+import gsap, { Power2, TweenMax } from 'gsap';
 
 import { desktopVw, fonts, letterSpacing } from '../styles';
 
@@ -10,10 +10,19 @@ const Hero = ({
     title, image, backgroundText, image2, cases,
   },
 }) => {
-  const refContainer = useRef(null);
+  const refCircle = useRef(null);
   const itemsRef = useRef([]);
 
   console.log(cases);
+
+  const [tl] = useState(gsap.timeline({ paused: true, repeat: -1 }));
+
+  useEffect(() => {
+    tl.to(refCircle.current, 15, { strokeDashoffset: 1000, ease: Power2.easeInOut })
+      .to(refCircle.current, 2, { strokeDashoffset: 0, ease: Power2.easeInOut });
+
+    tl.play();
+  }, []);
 
   return (
     <StyledHero>
@@ -27,10 +36,15 @@ const Hero = ({
       <Relative>
         <p>VIEW PROJECT</p>
         <StyledImage fluid={cases[0].image.fluid} />
-        <StyledSvg xmlns="http://www.w3.org/2000/svg" width="190" height="190" viewBox="0 0 190 190">
-          <g fill="none" stroke="#fff" strokeWidth="2">
-            <circle cx="95" cy="95" r="94" fill="none" />
-          </g>
+        <StyledSvg ref={refCircle} viewBox="0 0 360 360">
+          <path
+            d="M180 20.0845
+      a 150.9155 150.9155 0 0 1 0 310.831
+      a 150.9155 150.9155 0 0 1 0 -310.831"
+            fill="none"
+            stroke="#fff"
+            strokeWidth="4"
+          />
         </StyledSvg>
       </Relative>
       <Title>
@@ -94,8 +108,11 @@ const Counter = styled.p`
 const StyledSvg = styled.svg`
   position: absolute;
   width: ${desktopVw(200)};
-  bottom: ${desktopVw(-68)};
-  right: ${desktopVw(-72)};
+  bottom: ${desktopVw(-80)};
+  right: ${desktopVw(-80)};
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 0;
+  transform: rotate(-45deg);
 `;
 
 const Relative = styled.div`
