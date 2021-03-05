@@ -28,10 +28,10 @@ const Loader = () => {
         1, { y: 5, opacity: 0 },
         0.3,
       )
-      .to(refContainer.current, 1.5, {
+      .to(refContainer.current, 2, {
         yPercent: 100,
         ease: Power3.easeInOut,
-      }, '=-1').set(refLoader.current, { autoAlpha: 0 })
+      }, '=-1.2').set(refLoader.current, { autoAlpha: 0 })
       .set('#___gatsby', { className: '+=active' }, '=-1.5');
     return () => {};
   }, []);

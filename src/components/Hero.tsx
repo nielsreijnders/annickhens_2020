@@ -29,7 +29,7 @@ const Hero = ({
       <Counter>
         <span>0</span>
         <svg xmlns="http://www.w3.org/2000/svg" width="62.778" height="14.392" viewBox="0 0 62.778 14.392">
-          <path id="Path_5" data-name="Path 5" d="M532.953-281.712s6.863,4.323,13.511,3.113,6.791-9.038,13.08-7.953,6.356,11.586,12.076,12.292,4.78-9.023,10.8-9.465c4.426-.325,12.112,6.484,12.112,6.484" transform="translate(-532.42 287.624)" fill="none" stroke="#fff" strokeLinecap="round" strokeWidth="2" />
+          <path id="Path_5" data-name="Path 5" d="M532.953-281.712s6.863,4.323,13.511,3.113,6.791-9.038,13.08-7.953,6.356,11.586,12.076,12.292,4.78-9.023,10.8-9.465c4.426-.325,12.112,6.484,12.112,6.484" transform="translate(-532.42 287.624)" fill="none" stroke="#fff" strokeLinecap="round" strokeWidth="1.5" />
         </svg>
         <span>6</span>
       </Counter>
