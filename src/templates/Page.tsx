@@ -31,21 +31,20 @@ const Page = ({
   },
 }) => {
   console.log(sections);
-
   return (
     <>
       {sections.map((data: any, i: number, array: any) => {
         switch (data.__typename) {
           case 'ContentfulComponentHero':
             return <Hero data={data} />;
-          // case 'ContentfulComponentFeatured':
-          //   return <Featured data={data} />;
-          // case 'ContentfulComponentAbout':
-          //   return <About data={data} />;
-          // case 'ContentfulComponentBanner':
-          //   return <Banner data={data} />;
-          // case 'ContentfulComponentAboutPage':
-          //   return <Text data={data} />;
+          case 'ContentfulComponentFeatured':
+            return <Featured data={data} />;
+          case 'ContentfulComponentAbout':
+            return <About data={data} />;
+          case 'ContentfulComponentBanner':
+            return <Banner data={data} />;
+          case 'ContentfulComponentAboutPage':
+            return <Text data={data} />;
           default:
             return null;
         }
